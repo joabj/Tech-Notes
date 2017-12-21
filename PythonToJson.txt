@@ -1,0 +1,6 @@
+
+The JSON library for Python offers encoding
+between JSON files and Python objects.
+
+https://docs.python.org/2/library/json.html
+
