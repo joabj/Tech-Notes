@@ -4,3 +4,19 @@ between JSON files and Python objects.
 
 https://docs.python.org/2/library/json.html
 
+Simple JSON decoder:
+ class json.JSONDecoder([encoding[, object_hook[, parse_float[, parse_int[, parse_constant[, strict[, object_pairs_hook]]]]]]])
+
+JSON  -->	Python
+object -->	dict
+array  -->	list
+
+http://docs.python-guide.org/en/latest/scenarios/json/
+
+>>> import json
+>>> json_string = '{"first_name": "Guido", "last_name":"Rossum"}'
+>>> parsed_json = json.loads(json_string)
+>>> print(parsed_json['first_name'])
+Guido
+
+
