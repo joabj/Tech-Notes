@@ -1,0 +1,39 @@
+
+
+WORKING WITH TWITTER:
+
+https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline.html
+https://developer.twitter.com/en/docs/tweets/timelines/guides/working-with-timelines
+
+
+Asking Twitter of a use's timeline -- json.dumps(t.statuses.user_timeline()) --
+returns a number list of objects (dictionary items), each one a Tweet or Retweet.
+
+The id is the unique identifier, ever incrementing upwards...
+
+id	870434107788079100
+id	870205561450713100
+id	870150272647139300
+...
+id	869349791922303000
+
+DeTweet.py: 
+
+import json
+data = json.load(open('170602.json'))
+tweetCount = len(data)
+i = 0
+
+while i < len(data):
+	tweetNumber = data[i]["id"]
+	tweet = data[i]["text"]
+	print tweet
+	print tweetNumber
+	i = i + 1
+
+#Capture the ID of the last Tweet 
+LastTweet = str(data[0]["id"])
+f = open("LastTweet.txt", 'w')
+f.write(LastTweet)
+f.close()
+

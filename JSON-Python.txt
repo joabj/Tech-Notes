@@ -59,9 +59,11 @@ For a nicely formatted view:
 >>> pprint(data)
 
  
-LISTS AND DICTIONARIES
+LISTS AND DICTIONARIES:
  
 http://sthurlow.com/python/lesson06/
+
+[] are for lists, {} are for dictionaries.
 
 lists is a list of values. Each one of them is numbered, starting from zero
 
@@ -73,7 +75,14 @@ JSON  -->	Python
 object -->	dict
 array  -->	list
 
-[] are for lists, {} are for dictionaries.
+
+
+
+
+
+
+
+
 
 
 
