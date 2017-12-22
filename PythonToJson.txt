@@ -19,4 +19,53 @@ http://docs.python-guide.org/en/latest/scenarios/json/
 >>> print(parsed_json['first_name'])
 Guido
 
+https://stackoverflow.com/questions/2835559/parsing-values-from-a-json-file
+
+[] are for lists, {} are for dictionaries.
+
+data.json file: 
+
+{
+    "maps": [
+        {
+            "id": "blabla",
+            "iscategorical": "0"
+        },
+        {
+            "id": "blabla",
+            "iscategorical": "0"
+        }
+    ],
+    "masks": {
+        "id": "valore"
+    },
+    "om_points": "value",
+    "parameters": {
+        "id": "valore"
+    }
+}
+
+
+>>> import json
+>>> data = json.load(open('data.json'))
+>>> test = data["maps"][0]["id"]
+>>> print test
+blabla
+
+
+>>>data = json.load(open('170602.json'))
+ 
+  
+For a nicely formatted view:
+ 
+>>> from pprint import pprint
+>>> pprint(data)
+
+ 
+ 
+ 
+ 
+ 
+
+
 
