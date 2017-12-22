@@ -7,9 +7,6 @@ https://docs.python.org/2/library/json.html
 Simple JSON decoder:
  class json.JSONDecoder([encoding[, object_hook[, parse_float[, parse_int[, parse_constant[, strict[, object_pairs_hook]]]]]]])
 
-JSON  -->	Python
-object -->	dict
-array  -->	list
 
 http://docs.python-guide.org/en/latest/scenarios/json/
 
@@ -21,7 +18,7 @@ Guido
 
 https://stackoverflow.com/questions/2835559/parsing-values-from-a-json-file
 
-[] are for lists, {} are for dictionaries.
+
 
 data.json file: 
 
@@ -62,10 +59,22 @@ For a nicely formatted view:
 >>> pprint(data)
 
  
+LISTS AND DICTIONARIES
+ 
+http://sthurlow.com/python/lesson06/
+
+lists is a list of values. Each one of them is numbered, starting from zero
+
+A dictionary is an 'index' of words, and for each of them a definition. 
+In python, the word is called a 'key', and the definition a 'value'. 
  
  
- 
- 
+JSON  -->	Python
+object -->	dict
+array  -->	list
+
+[] are for lists, {} are for dictionaries.
+
 
 
 
