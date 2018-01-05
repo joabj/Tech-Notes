@@ -25,4 +25,3 @@ UPDATE FIELD:
 
 UPDATE [table] SET [field] = [value] WHERE [field] = [value]; 
 
-UPDATE SiteStories SET Art = '/Photos/2015/1508-FA-NYC-Time_Suspended.jpg' WHERE Art = 'Photos/2015/1508-FA-NYC-Time_Suspended.jpg';
