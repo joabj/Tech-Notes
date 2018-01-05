@@ -2,7 +2,7 @@
 GETTING AROUND:
 
 show databases;
-
+ 
 use [database];
 
 show tables;
