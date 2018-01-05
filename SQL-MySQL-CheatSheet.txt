@@ -1,0 +1,28 @@
+
+GETTING AROUND:
+
+show databases;
+
+use [database];
+
+show tables;
+
+describe [table];
+
+select * from [table];
+
+QUERY PATTERNS:
+
+SELECT [Field], [Field], ... FROM Table WHERE [Field]='[Value]' ORDER by [FIELD] [desc/ascend] limit [value]
+
+
+DELETE:
+
+DELETE FROM [table] WHERE [field] = [value];
+
+
+UPDATE FIELD: 
+
+UPDATE [table] SET [field] = [value] WHERE [field] = [value]; 
+
+UPDATE SiteStories SET Art = '/Photos/2015/1508-FA-NYC-Time_Suspended.jpg' WHERE Art = 'Photos/2015/1508-FA-NYC-Time_Suspended.jpg';
