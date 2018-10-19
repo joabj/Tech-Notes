@@ -1,0 +1,32 @@
+The Long Weary Slog to HTTPS
+
+I want to turn my site from an HTTP one to an HTTPS one. The easiest way, I’ve heard to do this, is to set up a load balancer to do the task. Not that my own site warrants even a single CPU, but it beats managing your own cert on your web server. 
+Digital Ocean – set up and maintain your own cert, please. I can’t with that. Google can create and manage the certs for you, for now anyway (Still in beta)  https://cloud.google.com/load-balancing/docs/ssl-certificates
+“To use HTTPS or SSL load balancing, you must associate at least one SSL certificate with the load balancer's target proxy. You can configure the target proxy with up to ten SSL certificates.”
+Target proxy? Confused puppy look. 
+Anyway, the documentation jumped ahead of us. So I need to set up a load balancer https://cloud.google.com/load-balancing/docs/choosing-load-balancer , presumably a HTTP(S) one https://cloud.google.com/load-balancing/docs/https/setting-up-https . More mandatory instruction https://cloud.google.com/load-balancing/docs/https/ : Google sure is wordy. 
+Anyway, I specifically want HTTPS Load Balancer, in which “the client SSL session terminates at the load balancer.” https://cloud.google.com/load-balancing/docs/https/ 
+
+Enough! I want to set up a load balancer https://cloud.google.com/iap/docs/load-balancer-howto#firewalls . Wait, I need to get a certificate first. 
+The problem with Google Documentation is that it always assumes you’ve read all the other Google documentation first, no matter where you actually start.
+Managed certificate, please. https://cloud.google.com/load-balancing/docs/ssl-certificates#managed-certs
+
+From the GCloud command line: 
+gcloud beta compute ssl-certificates create [SSL_CERTIFICATE_NAME] \
+        --domains [DOMAIN]
+
+I just made up a cert name and assigned it to my own domain name joabj.info. 
+To see all your certs, run this in the GCloud command line:
+gcloud beta compute ssl-certificates list
+
+It is going to show it as provisional until the following conditions are met: 
+
+We do a content-based load balancer
+https://cloud.google.com/load-balancing/docs/https/content-based-example
+“For the certificate provisioning process to proceed, all of the following conditions must be met:
+•	The DNS records for your domain must reference the IP address of your load balancer's target proxy,
+•	Your target proxy must reference the Google-managed certificate resource.
+•	Your load balancer configuration must be complete, including the creation of a forwarding rule.”
+
+So wait—the first thing the load balancer doc tells ne is that I need a SSL cert, but then the ssl cert provisioning tool tells me I need a load balancer. Wut?
+Also, wait DigitalOcean can do HTTPS termination too: https://www.digitalocean.com/docs/networking/load-balancers/how-to/ssl-termination/
