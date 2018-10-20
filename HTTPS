@@ -28,5 +28,71 @@ https://cloud.google.com/load-balancing/docs/https/content-based-example
 •	Your target proxy must reference the Google-managed certificate resource.
 •	Your load balancer configuration must be complete, including the creation of a forwarding rule.”
 
-So wait—the first thing the load balancer doc tells ne is that I need a SSL cert, but then the ssl cert provisioning tool tells me I need a load balancer. Wut?
-Also, wait DigitalOcean can do HTTPS termination too: https://www.digitalocean.com/docs/networking/load-balancers/how-to/ssl-termination/
+So wait—the first thing the load balancer doc tells ne is that I need 
+a SSL cert, but then the ssl cert provisioning tool tells me I need a load balancer. Wut?
+Also, wait DigitalOcean can do HTTPS termination too: 
+https://www.digitalocean.com/docs/networking/load-balancers/how-to/ssl-termination/\
+
+
+
+OK, so starting the configuration :
+
+https://console.cloud.google.com/net-services/loadbalancing/http/add
+
+So I clicked on create a new load balancer. give it a name. Fine, then...
+
+Click Backend configuration, then create or select a backend service. If you create a new backend service, follow the steps below:
+
+    Add a Name for your backend service.
+    Under Protocol, select HTTP or HTTPS. For HTTPS, each instance must be configured to serve SSL and have a certificate installed. However, you can use any certificate, including a self-signed one.
+    In Backends > New Backend > Instance group, select the instance group you want to use.
+    
+    
+So now I got to go back and create an instance group of my VM. Sheesh. OK, so jump over to this page:
+https://cloud.google.com/compute/docs/instance-groups/
+
+"A managed instance group uses an instance template to create a group of 
+identical instances. You control a managed instance group as a single entity. 
+If you wanted to make changes to instances that are part of a managed instance group, 
+you would make the change to the whole instance group."
+
+
+"By default, instances in the group will be placed in the default 
+network and randomly assigned IP addresses from the regional range."
+
+Oh, then there is this:
+
+"Unmanaged instance groups are groups of dissimilar instances that you 
+can arbitrarily add and remove from the group. Unmanaged instance groups 
+do not offer autoscaling, rolling update support, or the use of instance 
+templates so Google recommends creating managed instance groups whenever possible. 
+Use unmanaged instance groups only if you need to apply load balancing to your 
+pre-existing configurations or to groups of dissimilar instances."
+
+This is actually what I need, since I'm only using one instance. Autoscaling will
+have to wait for another day, I'm afraid.
+
+
+So, here is another page to read: https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-unmanaged-instances
+
+Off we go to the "create Instance Groups" page, https://console.cloud.google.com/compute/instanceGroups/
+Select "UNmanaged Instance Group" then hit ENTER a bunch of times for defaults.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
