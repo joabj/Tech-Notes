@@ -1,0 +1,59 @@
+From https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+
+<html>
+<head>
+<style>
+   .box {
+            display: flex;
+          }
+</style>
+</head>
+<body>
+
+
+ <div class="box">
+          <div>One</div>
+          <div>Two</div>
+          <div>Three
+              <br>has
+              <br>extra
+              <br>text
+          </div>
+
+
+</body>
+</html>
+
+Now with Grid:
+From https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows
+
+<html>
+<head>
+<style>
+#grid {
+  display: grid;
+  height: 100px;
+  grid-template-rows: 30px 1fr;
+}
+
+#areaA {
+  background-color: lime;
+}
+
+#areaB {
+  background-color: yellow;
+}
+ 
+          }
+</style>
+</head>
+<body>
+
+
+<div id="grid">
+  <div id="areaA">This is a title</div>
+  <div id="areaB">This is Another Title</div>
+</div>
+</body>
+</html>
+
