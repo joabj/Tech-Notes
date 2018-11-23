@@ -80,6 +80,34 @@ Select "UNmanaged Instance Group" then hit ENTER a bunch of times for defaults.
 
 
 
+DIGITAL
+
+Let's see if we can try this on DO. 
+
+https://www.digitalocean.com/docs/networking/load-balancers/how-to/ssl-termination/
+https://www.digitalocean.com/docs/networking/load-balancers/how-to/ssl-passthrough/
+
+To use Let’s Encrypt certificates, however, you’ll need a domain that uses DigitalOcean’s name servers and whose DNS records are managed in the DigitalOcean Control Panel.
+
+So, move the name servers over to Digital Ocean 
+https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars
+
+
+(note: do I need to update my domain name email? -- good thing DO has an automaticate GMail forwarding for MX page.)
+
+After going through the options ( i added SSL redirect http to https)
+
+THEN you have to connect it toa  droplet (NOT part ofa previous step)
+
+First pass https does not work
+
+Sooo... joabj.com (minus images), but www.joabj.com DOES NOT work. back to the DNS records
+
+
+
+
+
+
 
 
 
