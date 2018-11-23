@@ -1,0 +1,60 @@
+GCP: 
+
+https://cloud.google.com/compute/docs/disks/gcs-buckets
+
+Mounting a bucket as a file system
+
+You can use the Google Cloud Storage FUSE tool to mount a Cloud Storage bucket to your Compute Engine instance. The mounted bucket behaves similarly to a persistent disk even though Cloud Storage buckets are object storage.
+
+To learn how to mount a Cloud Storage bucket on your instance, read Using Cloud Storage FUSE.
+
+Huh? One page just leads to another...
+
+INSTALL FUSE
+
+Follow these directions:
+https://cloud.google.com/storage/docs/gcs-fuse
+
+Cloud Storage FUSE is an open source FUSE adapter that allows you to mount Cloud Storage buckets as file systems on Linux or macOS systems. It also provides a way for applications to upload and download Cloud Storage objects using standard file system semantics. Cloud Storage FUSE can be run anywhere with connectivity to Cloud Storage, including Google Compute Engine VMs or on-premises systems1.
+
+
+https://www.youtube.com/watch?v=FFTxUlW8_QQ
+
+Set up credentials for Cloud Storage FUSE.--This is the problem that is not clearly addressed in the docs
+
+Cloud Storage FUSE auto-discovers credentials based on application default credentials:
+
+    If you are running on a Google Compute Engine instance with scope storage-full configured, then Cloud Storage FUSE can use the Compute Engine built-in service account. For more information, see Using Service Accounts with Applications.
+
+	
+	Huh?
+	
+	
+	Or..mount additional disjs
+	
+	https://www.youtube.com/watch?v=bLij013H7UA
+	
+	
+	This option is $40 a month...
+	
+	
+	
+anyway, following the above leads to an authorization error. 
+	
+	Back to authorization:
+	
+	https://cloud.google.com/docs/authentication/production
+	
+	Creating a service account
+
+The following steps describe how to create a service account. 
+
+Back to the storage page:
+
+If you set the environment variable GOOGLE_APPLICATION_CREDENTIALS to the path of a service account's JSON key file, then Cloud Storage FUSE will use this credential. For more information about creating a JSON key file for a service account using the Google Cloud Platform Console,
+
+..is bullshit: Where do you set the environmental error 
+
+
+
+created a json file onb project owner. 
