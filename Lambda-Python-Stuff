@@ -1,0 +1,77 @@
+
+PART 1: RUN PYTHON FROM THE CONSOLE:
+
+https://www.fullstackpython.com/blog/aws-lambda-python-3-6.html
+
+AWS doc:
+
+https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html
+
+PART 2: Add AWS CLI
+
+https://aws.amazon.com/cli/
+
+Configuring for Windows:
+
+https://ulyaoth.com/tutorials/how-to-install-and-configure-the-aws-cli-on-windows-10/
+
+
+PART 2.5: SETTING UP IAM 
+
+This invcolves setting up a new user on IAM:
+(Python-Lambda)
+
+And a permissions group
+(AWSPermissions)
+
+From these bumdled sets of permissions I get:
+AmazonS3FullAccess 
+AWSLambdaBasicExecutionRole
+AWSLambdaBasicExecution
+
+When you create a user, you get back an Access key and secret access key
+
+Back at your computer, get to the command prompt. In Windows' case 
+
+C:\Users\home>aws configuration
+
+Another tut: https://medium.com/@stephinmon.antony/aws-lambda-with-python-examples-2eb227f5fafe
+
+PART 3: UPLOADING FUNCTIONS TO S3
+Back here: https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html
+(Zip has to be done through Win Explorer)
+
+SAMPLE Code:
+
+import os
+
+
+def lambda_handler(event, context):
+    what_to_print = os.environ.get("what_to_print")
+    how_many_times = int(os.environ.get("how_many_times"))
+
+    # make sure what_to_print and how_many_times values exist
+    if what_to_print and how_many_times > 0:
+        for i in range(0, how_many_times):
+            # formatted string literals are new in Python 3.6
+            print(f"what_to_print: {what_to_print}.")
+        return what_to_print
+    return None
+	
+	
+Go back and establish region through config: us-east-1
+
+aws lambda update-function-code --function-name Lambda-Test --zip-file fileb://C:\Users\home\Documents\Dev\Lambda-Test.zip
+
+
+
+
+
+
+
+
+
+
+
+
+
