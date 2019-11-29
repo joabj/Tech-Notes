@@ -25,3 +25,7 @@ UPDATE FIELD:
 
 UPDATE [table] SET [field] = [value] WHERE [field] = [value]; 
 
+MSAKE A CHANGE WITHIN A TIME PERIOD:
+
+SELECT FileName FROM SiteStories where Published between '2018-01-01 00:00:00' and '2018-12-31 23:59:00' 
+
